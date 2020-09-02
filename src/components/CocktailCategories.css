@@ -1,0 +1,28 @@
+li {
+  list-style: none;
+  font-size: 20px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 20px;
+  text-align: center;
+  padding-left: 40px
+}
+
+a:link {
+  color: rgb(137, 115, 238);
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(247, 115, 115);
+}
+
+a:hover {
+  color: hotpink;
+}
+
+a:active {
+  color: blue;
+}

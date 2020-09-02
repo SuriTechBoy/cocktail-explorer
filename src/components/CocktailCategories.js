@@ -1,29 +1,34 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import Dropdown from 'react-bootstrap/Dropdown'
+import './CocktailCategories.css'
+import { categories } from '../constants/data'
 
-// This class contains markup
+// Contains the markup and rendering
 export default class CocktailCategories extends Component {
-  renderCocktailCategories(category) {
+  renderCategories(cocktailCategories) {
     return (
-      <li key={category}>
-        <Link to={`/cocktails/${category}`}>{category}</Link>
-      </li>
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Categories
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          {categories.map(category =>
+            <Dropdown.Item key={category} href={`/categories/${category}`}>
+              {category}
+            </Dropdown.Item>
+          )}
+        </Dropdown.Menu>
+      </Dropdown>
     )
   }
 
   render() {
     const { cocktailCategories } = this.props
+    console.log(cocktailCategories)
     return (
       <div className='cocktail-categories'>
-        <h1>Cocktail Categories</h1>
-
-        {!cocktailCategories && 'Loading...'}
-
-        {cocktailCategories &&
-          <ul>{cocktailCategories.map(
-            this.renderCocktailCategories)}
-          </ul>
-        }
+        {/* {!cocktailCategories && 'Loading...'} */}
+        {this.renderCategories(cocktailCategories)}
       </div>
     )
   }
